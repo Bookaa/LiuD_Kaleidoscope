@@ -2,20 +2,16 @@
 
 SynName = 'ks'
 
-ignores = {
-    'crlf'   : ( ' \t\n', [ r'/\*(.|\n)*?\*/' ] ),
-    'wspace' : ( ' \t',   [ r'/\*(.|\n)*?\*/' ] ),
-    'no'     : ( '', [] )
-}
-
 base_def = { 'NEWLINE' :    ('',   '\\n+'),
              'NAME'    :    ('Name',  '[A-Za-z_][A-Za-z0-9_]*'),
              'NUMBER_INT' : ('Int',     r'0|[1-9]\d*'),
              'NUMBER_DOUBLE' :  ('Double',  r'\d+\.\d+')
              }
 
-s_tree = '''
+s_tree = r'''
 .set_linecomment '\#'
+.set_blockcomment '/\*' '\*/'
+
 
 .syntax crlf
 Module(vlst*) : stmt* ENDMARKER$
@@ -80,7 +76,7 @@ forbody : x
 forbody1 : '(' x ')'
 '''
 
-s_sample = '''
+s_sample = r'''
 # def unary- (v) 0 - v
 
 # def binary> 10 (lhs rhs) rhs < lhs
@@ -89,6 +85,8 @@ s_sample = '''
 
 # def binary| 5 (lhs rhs)
 #    if lhs then 1 else if rhs then 1 else 0
+
+/* this is comments */
 
 def printdensity(d)
     if d > 8 then
@@ -123,3 +121,5 @@ def mandel(realstart imagstart realmag imagmag)
 
 mandel(-2.3, -1.3, 0.05, 0.07)
 '''
+
+
