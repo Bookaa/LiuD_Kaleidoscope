@@ -3,8 +3,8 @@
 SynName = 'ks'
 
 ignores = {
-    'crlf'   : ( ' \t\n', [ r'\#.*', r'/\*(.|\n)*?\*/' ] ),
-    'wspace' : ( ' \t',   [ r'\#.*', r'/\*(.|\n)*?\*/' ] ),
+    'crlf'   : ( ' \t\n', [ r'/\*(.|\n)*?\*/' ] ),
+    'wspace' : ( ' \t',   [ r'/\*(.|\n)*?\*/' ] ),
     'no'     : ( '', [] )
 }
 
@@ -15,6 +15,8 @@ base_def = { 'NEWLINE' :    ('',   '\\n+'),
              }
 
 s_tree = '''
+.set_linecomment '\#'
+
 .syntax crlf
 Module(vlst*) : stmt* ENDMARKER$
 params : value ^+ ','
