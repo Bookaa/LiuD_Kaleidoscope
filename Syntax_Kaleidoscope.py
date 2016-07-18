@@ -1,14 +1,7 @@
 # LiuTaoTao github.com/Bookaa/LiuD
 
-SynName = 'ks'
-
-base_def = { 'NEWLINE' :    ('',   '\\n+'),
-             'NAME'    :    ('Name',  '[A-Za-z_][A-Za-z0-9_]*'),
-             'NUMBER_INT' : ('Int',     r'0|[1-9]\d*'),
-             'NUMBER_DOUBLE' :  ('Double',  r'\d+\.\d+')
-             }
-
 s_tree = r'''
+.name_prefix ks
 .set_linecomment '\#'
 .set_blockcomment '/\*' '\*/'
 
