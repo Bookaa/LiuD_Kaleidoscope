@@ -45,29 +45,29 @@ forcmd : 'for' assigncmd ',' condi ',' step 'in' forbody
 .syntax wspace
 stmt :: stmtone NEWLINE$
 
+Output Rules {
+    Module : (x NL)*
+    stmtone : x
+    funccall : x '(' x? ')'
+    arg : x
+    params : x ^* ','
+    value : x x x
+    assigncmd : x '=' x
+    negitem : '-' x
+    enclosed : '(' x ')'
+    litVarname : x
+    litNumi : x
+    litNumf : x
+    funcdef : 'def' x '(' x* ')' x
+    body : x ^* ':'
+    ifcmd : 'if' x 'then' x x* 'else' x
+    elseclause : 'else if' x 'then' x
+    forcmd : 'for' x ',' x ',' x 'in' x
+    forbody : x
+    forbody1 : '(' x ')'
+    }
 '''
 
-Out_self = '''
-Module : (x NL)*
-stmtone : x
-funccall : x '(' x? ')'
-arg : x 
-params : x ^* ','
-value : x x x
-assigncmd : x '=' x
-negitem : '-' x
-enclosed : '(' x ')'
-litVarname : x
-litNumi : x
-litNumf : x
-funcdef : 'def' x '(' x* ')' x
-body : x ^* ':'
-ifcmd : 'if' x 'then' x x* 'else' x
-elseclause : 'else if' x 'then' x
-forcmd : 'for' x ',' x ',' x 'in' x
-forbody : x
-forbody1 : '(' x ')'
-'''
 
 s_sample = r'''
 # def unary- (v) 0 - v
