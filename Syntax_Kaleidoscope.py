@@ -66,10 +66,8 @@ Output Rules {
     forbody : x
     forbody1 : '(' x ')'
     }
-'''
 
-
-s_sample = r'''
+Sample Text = $liud$
 # def unary- (v) 0 - v
 
 # def binary> 10 (lhs rhs) rhs < lhs
@@ -103,7 +101,7 @@ def mandelconverge(real imag)
     mandelconverger(real, imag, 0, real, imag)
 
 def mandelhelp(xmin xmax xstep ymin ymax ystep)
-    for y = ymin, y < ymax, ystep in ( 
+    for y = ymin, y < ymax, ystep in (
         ( for x = xmin, x < xmax, xstep in
             printdensity(mandelconverge(x, y)))
         : putchard(10))
@@ -113,6 +111,5 @@ def mandel(realstart imagstart realmag imagmag)
                imagstart, imagstart+imagmag*48, imagmag)
 
 mandel(-2.3, -1.3, 0.05, 0.07)
+$duil$
 '''
-
-
